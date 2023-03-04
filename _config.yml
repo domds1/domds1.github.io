@@ -7,49 +7,140 @@
 #
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
+
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+title: domenicodistasi.com
+email: dom.distasi@gmail.com
+description: #I write about how to grow as a machine learning engineer.
+# this means to ignore newlines until "baseurl:"
+# Write an awesome description for your new site here. You can edit this
+# line in _config.yml. It will appear in your document head meta (for
+# Google search results) and in your feed.xml site description.
+twitter_username:
+github_username: domds1
+minimal_mistakes_skin: dark # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+search: true
 
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+markdown: kramdown
+theme: minimal-mistakes-jekyll
+# remote_theme: mmistakes/minimal-mistakes
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+include:
+  - _pages
 
 # Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
 # exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
 #   - Gemfile
 #   - Gemfile.lock
-#   - node_modules/
+  - node_modules
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+author:
+  name   : "Domenico Di Stasi"
+  avatar : "/assets/images/gh_avatar.jpg"
+  bio    : #"Machine learning engineer in love with building digital products."
+  location : "Italy"
+  links:
+    - label: "domenicodistasi.com"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.domenicodistasi.com/about"
+    #- label: "@domenicodistasi"
+    #  icon: "fab fa-fw fa-twitter-square"
+    #  url: "https://twitter.com/..."
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/domds1"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/domenico-di-stasi-18347a97/"
+  #   - label: "Instagram"
+  #     icon: "fab fa-fw fa-instagram"
+  #     url: "https://instagram.com/..."
+  #   - label: "Python writings"
+  #     icon: "fab fa-python"
+  #     url: "https://www.janmeppe.com/tags/#python"
+  #   - label: "SQL writings"
+  #     icon: "fas fa-database"
+  #     url: "https://www.janmeppe.com/tags/#sql"
+
+footer:
+  links:
+    - label: "Github"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/domds1"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/https://www.linkedin.com/in/domenico-di-stasi-18347a97/"
+
+# comments:
+#   provider: "disqus"
+#   disqus:
+#     shortname: "janmeppeblog"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      show_date: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# teaser: /assets/images/500x300.jpg
+# logo: /assets/images/88x88.jpg
+# logo: /assets/images/88x352.jpg
+# logo: /assets/images/logo2.png
+# Logo next to janmeppe.com site title
+# logo: /assets/images/logo3.png
+# logo: /assets/images/logo5-32x32-trans.png
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# analytics:
+#   provider: "google"
+#   google:
+#     tracking_id: "UA-78697215-1"
+#     anonymize_ip: false # default
+
+# fixes "No GitHub API authentication" error
+github: [metadata]
